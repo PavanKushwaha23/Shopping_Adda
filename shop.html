@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Shopping Adda | Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    
+    <div class="container grid-layout">
+        <aside class="sidebar">
+            <input type="text" id="search-input" class="search-bar" placeholder="Search products...">
+            <h3>Categories</h3>
+            <ul class="filter-list">
+                <li class="active" data-cat="All">All Products</li>
+                <li data-cat="Audio">Audio</li>
+                <li data-cat="Wearables">Wearables</li>
+                <li data-cat="Workspace">Workspace</li>
+            </ul>
+        </aside>
+        
+        <main>
+            <div id="shop-grid" class="products-grid"></div>
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="script.js"></script>
+</body>
+</html>
