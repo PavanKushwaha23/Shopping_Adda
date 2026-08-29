@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secure Checkout - Shopping Adda.</title>
+    <meta name="description" content="Complete your purchase securely with 256-bit encrypted card processing, PayPal, or Cash on Delivery." />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    
+    <div class="top-bar" style="background: var(--color-primary);">
+      <div class="container top-bar-inner">
+        <div>
+          <span class="top-bar-badge">🔒 256-BIT ENCRYPTION</span>
+          <span>End-to-End Encrypted Checkout. Your information is strictly confidential.</span>
+        </div>
+        <div class="top-bar-links">
+          <a href="cart.html">&larr; Return to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Brand Logo -->
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">S</div>
+            <span>SHOPPING<span class="brand-accent"> ADDA.</span></span>
+          </a>
+
+          <div style="font-size: 0.875rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.05em;">
+            Secure Order Checkout
+          </div>
+
+          <div class="header-actions">
+            <a href="cart.html" class="action-btn" aria-label="Shopping Cart">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              <span class="badge-count cart-count-badge badge-hidden">0</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Checkout Page Content -->
+    <main class="checkout-page-wrapper">
+      <div class="container">
+        
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="cart.html">Cart</a>
+          <span>/</span>
+          <span style="color: var(--text-main); font-weight: 600;">Secure Checkout</span>
+        </nav>
+
+        <form id="checkout-form" class="checkout-layout">
+          <!-- Left Column: Checkout Inputs -->
+          <div class="checkout-steps-column">
+            <!-- Step 1: Customer Contact & Shipping Information -->
+            <div class="checkout-section-card">
+              <h2 class="checkout-section-title">
+                <span class="step-num">1</span>
+                <span>Contact & Shipping Address</span>
+              </h2>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="checkout-first-name">First Name</label>
+                  <input type="text" id="checkout-first-name" class="form-control" placeholder="Keshab" required  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="checkout-last-name">Last Name</label>
+                  <input type="text" id="checkout-last-name" class="form-control" placeholder="Roy" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="checkout-email">Email Address (For Order Tracking)</label>
+                  <input type="email" id="checkout-email" class="form-control" placeholder="rahul.singh@example.com" required  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="checkout-phone">Mobile Phone (For Courier Updates)</label>
+                  <input type="tel" id="checkout-phone" class="form-control" placeholder="+91 76938 98463" required value="" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="checkout-address">Street Address</label>
+                <input type="text" id="checkout-address" class="form-control" placeholder="123 VijayNagar Lane, Suite 4B" required value="" />
+              </div>
+
+              <div class="form-row" style="grid-template-columns: 2fr 1fr 1fr;">
+                <div class="form-group">
+                  <label class="form-label" for="checkout-city">City</label>
+                  <input type="text" id="checkout-city" class="form-control" placeholder="Indore" required value="" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="checkout-state">State</label>
+                  <input type="text" id="checkout-state" class="form-control" placeholder="MP" required value="" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="checkout-zip">ZIP Code</label>
+                  <input type="text" id="checkout-zip" class="form-control" placeholder="10001" required value="" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Shipping Method -->
+            <div class="checkout-section-card">
+              <h2 class="checkout-section-title">
+                <span class="step-num">2</span>
+                <span>Select Shipping Delivery Speed</span>
+              </h2>
+
+              <div class="shipping-method-options" style="display: grid; gap: 0.75rem;">
+                <label class="filter-checkbox-label" style="border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); background: #fff; cursor: pointer;">
+                  <input type="radio" name="shipping-option" value="standard" checked />
+                  <div style="flex: 1; margin-left: 0.75rem;">
+                    <div style="font-weight: 700; color: var(--color-primary);">Standard Ground Delivery (3-5 Business Days)</div>
+                    <div style="font-size: 0.8125rem; color: var(--text-muted);">Fully tracked with signature confirmation</div>
+                  </div>
+                  <strong style="color: var(--color-accent);">FREE (Rs.0.00)</strong>
+                </label>
+
+                <label class="filter-checkbox-label" style="border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); background: #fff; cursor: pointer;">
+                  <input type="radio" name="shipping-option" value="express" />
+                  <div style="flex: 1; margin-left: 0.75rem;">
+                    <div style="font-weight: 700; color: var(--color-primary);">Express Air Courier (2 Business Days)</div>
+                    <div style="font-size: 0.8125rem; color: var(--text-muted);">Priority handling & insured parcel</div>
+                  </div>
+                  <strong>Rs.80.00</strong>
+                </label>
+
+                <label class="filter-checkbox-label" style="border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md); background: #fff; cursor: pointer;">
+                  <input type="radio" name="shipping-option" value="overnight" />
+                  <div style="flex: 1; margin-left: 0.75rem;">
+                    <div style="font-weight: 700; color: var(--color-primary);">Overnight Priority (Next Morning 10:30 AM)</div>
+                    <div style="font-size: 0.8125rem; color: var(--text-muted);">Direct courier handoff with insurance</div>
+                  </div>
+                  <strong>Rs.95.00</strong>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 3: Payment Method & Interactive Card -->
+            <div class="checkout-section-card">
+              <h2 class="checkout-section-title">
+                <span class="step-num">3</span>
+                <span>Payment Information</span>
+              </h2>
+
+              <!-- Payment Method Tabs -->
+              <div class="payment-tabs-nav">
+                <button type="button" class="pay-tab-btn active" data-method="card">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                  Credit / Debit Card
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="paypal">
+                  PayPal Express
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="apple">
+                  Apple / Google Pay
+                </button>
+                <button type="button" class="pay-tab-btn" data-method="cod">
+                  Cash on Delivery
+                </button>
+              </div>
+
+              <!-- Card Payment Section -->
+              <div id="card-payment-section">
+                
+                <div class="card-preview">
+                  <div class="card-chip"></div>
+                  <div class="card-number-display" id="preview-card-number">•••• •••• •••• ••••</div>
+                  <div class="card-footer-display">
+                    <div>
+                      <div class="card-label-small">CARDHOLDER</div>
+                      <div class="card-val-small" id="preview-card-name">Naveen Patel</div>
+                    </div>
+                    <div>
+                      <div class="card-label-small">EXPIRES</div>
+                      <div class="card-val-small" id="preview-card-expiry">12/28</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card Form Inputs -->
+                <div class="form-group">
+                  <label class="form-label" for="card-number-input">Card Number</label>
+                  <input type="text" id="card-number-input" class="form-control" placeholder="4532 8901 2345 6789" maxlength="19" value="" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="card-name-input">Card Holder Full Name</label>
+                  <input type="text" id="card-name-input" class="form-control" placeholder="FullName" value="" />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="card-expiry-input">Expiration Date (MM/YY)</label>
+                    <input type="text" id="card-expiry-input" class="form-control" placeholder="MM/YY" maxlength="5" value="" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="card-cvv-input">CVV / CVC Security Code</label>
+                    <input type="password" id="card-cvv-input" class="form-control" placeholder="123" maxlength="4" value="" />
+                  </div>
+                </div>
+              </div>
+
+              
+              <div id="alternate-payment-section" style="display: none;">
+                <div id="alt-pay-msg" style="background: var(--bg-surface-alt); border-radius: var(--radius-md); border: 1px solid var(--border-color);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Order Review Sidebar -->
+          <div class="checkout-summary-column">
+            <div class="order-summary-card">
+              <h3 class="summary-title" style="font-size: 1.25rem; margin-bottom: 1rem;">Order Items Summary</h3>
+
+              <!-- Scrollable Item List -->
+              <div id="checkout-items-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 1.5rem;">
+                <!-- Dynamically populated from checkout.js -->
+              </div>
+
+              <!-- Financial Breakdown -->
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="checkout-subtotal">Rs.0.00</strong>
+              </div>
+
+              <div class="summary-row" id="checkout-discount-row" style="display: none; color: var(--color-success);">
+                <span>Discount</span>
+                <strong id="checkout-discount-val">-Rs.0.00</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Shipping</span>
+                <strong id="checkout-shipping">FREE</strong>
+              </div>
+
+              <div class="summary-row">
+                <span>Sales Tax (8%)</span>
+                <strong id="checkout-tax">Rs.0.00</strong>
+              </div>
+
+              <div class="summary-row total">
+                <span>Total Amount Due</span>
+                <strong id="checkout-total" style="color: var(--color-accent);">Rs.0.00</strong>
+              </div>
+
+              <button type="submit" id="place-order-btn" class="btn btn-primary btn-lg btn-block mt-6" style="padding: 1.1rem;">
+                Complete Order
+              </button>
+
+              <div style="font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 1rem; line-height: 1.4;">
+                By placing this order, you agree to LuxeMart's Terms of Sale, Privacy Policy, and 30-Day Guarantee.
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Order Completed Modal -->
+    <div class="modal-backdrop" id="order-success-modal">
+      <div class="modal-dialog" style="max-width: 580px; padding: 2.5rem 2rem;">
+        <div id="order-success-details">
+          <!-- Dynamically populated from checkout.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-bottom-inner" style="border: none; padding: 2rem 0;">
+        <div>&copy; 2026 Shopping Adda. International Inc. All rights reserved.</div>
+        <div class="payment-badge-icons">
+          <span class="pay-badge">256-BIT SSL ENCRYPTED</span>
+          <span class="pay-badge">PCI-DSS COMPLIANT</span>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="/js/products.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/toast.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/checkout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Shopping Adda</title>
+    <meta name="description" content="Review your selected items, apply promo codes, check shipping thresholds, and proceed to checkout." />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <div>
+          <span class="top-bar-badge">OFFER</span>
+          <span>Orders over Rs.950 qualify for <strong>FREE Express Delivery</strong>!</span>
+        </div>
+        <div class="top-bar-links">
+          <a href="shop.html">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Site Header & Sticky Navbar -->
+    <header class="site-header">
+      <div class="container">
+        <nav class="navbar">
+          <!-- Mobile Menu -->
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+
+          <!-- Brand Logo -->
+          <a href="index.html" class="brand-logo">
+            <div class="brand-logo-icon">S</div>
+            <span>SHOPPING<span class="brand-accent"> ADDA.</span></span>
+          </a>
+
+          <!-- Nav Menu -->
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="shop.html" class="nav-link">Shop All</a></li>
+            <li><a href="shop.html?category=Electronics" class="nav-link">Electronics</a></li>
+            <li><a href="shop.html?category=Fashion" class="nav-link">Fashion</a></li>
+            <li><a href="cart.html" class="nav-link active">Cart</a></li>
+          </ul>
+
+          
+          <div class="header-search">
+            <div class="search-input-wrapper">
+              <input type="text" class="header-search-input" placeholder="Search catalog..." aria-label="Search products" />
+              <button class="search-submit-btn" aria-label="Submit search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              </button>
+            </div>
+          </div>
+
+          
+          <div class="header-actions">
+            <button class="action-btn wishlist-trigger-btn" aria-label="Open Wishlist">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              <span class="badge-count badge-wishlist wishlist-count-badge badge-hidden">0</span>
+            </button>
+            <a href="cart.html" class="action-btn" aria-label="Shopping Cart">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              <span class="badge-count cart-count-badge badge-hidden">0</span>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    
+    <aside class="mobile-nav" id="mobile-nav">
+      <div style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--color-primary);">SHOPPING<span class="brand-accent"> ADDA.</span></div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="shop.html" class="mobile-nav-link">Shop Catalog</a></li>
+        <li><a href="cart.html" class="mobile-nav-link active">Shopping Cart</a></li>
+        <li><a href="checkout.html" class="mobile-nav-link">Proceed to Checkout</a></li>
+      </ul>
+    </aside>
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <!-- Main Cart Content -->
+    <main class="cart-page-wrapper">
+      <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="shop.html">Shop</a>
+          <span>/</span>
+          <span style="color: var(--text-main); font-weight: 600;">Your Shopping Bag</span>
+        </nav>
+
+        <h1 style="font-size: 2.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 2rem;">Shopping Cart</h1>
+
+        
+        <div id="cart-empty-state" style="display: none; text-align: center; background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 5rem 1.5rem; box-shadow: var(--shadow-sm);">
+          <svg viewBox="0 0 24 24" width="70" height="70" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-light); margin: 0 auto 1.5rem;"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+          <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem;">Your Cart is Currently Empty</h2>
+          <p style="color: var(--text-muted); max-width: 460px; margin: 0 auto 2rem; line-height: 1.6;">Looks like you haven't added anything to your cart yet. Explore our curated collections to find something exceptional.</p>
+          <a href="shop.html" class="btn btn-primary btn-lg">Explore Our Catalog &rarr;</a>
+        </div>
+
+        <!-- Active Cart Layout -->
+        <div id="cart-content-wrapper" class="cart-layout">
+          <!-- Cart Table Card -->
+          <div class="cart-table-card">
+            <div style="overflow-x: auto;">
+              <table class="cart-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="cart-table-body">
+                  <!-- Dynamically populated from cart.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Cart Table Footer Buttons -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); flex-wrap: wrap; gap: 1rem;">
+              <a href="shop.html" class="btn btn-secondary">
+                &larr; Continue Shopping
+              </a>
+              <button type="button" class="btn btn-secondary" onclick="clearEntireCart()" style="color: var(--color-danger);">
+                Clear Entire Bag
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary Sticky Card -->
+          <div class="order-summary-card">
+            <h2 class="summary-title">Order Summary</h2>
+
+            <!-- Free Shipping Progress -->
+            <div class="shipping-progress-box">
+              <div id="shipping-progress-text" style="font-size: 0.8125rem; color: var(--color-primary);">
+                Calculating shipping threshold...
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar-fill" id="shipping-progress-fill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            
+            <div class="summary-row">
+              <span>Items Subtotal</span>
+              <strong id="summary-subtotal">Rs.0.00</strong>
+            </div>
+
+            <div class="summary-row" id="summary-discount-row" style="display: none; color: var(--color-success);">
+              <span>Promotional Discount</span>
+              <strong id="summary-discount-val">-Rs.0.00</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Estimated Shipping</span>
+              <strong id="summary-shipping">FREE</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Estimated Sales Tax (8%)</span>
+              <strong id="summary-tax">Rs.0.00</strong>
+            </div>
+
+            <div class="summary-row total">
+              <span>Estimated Total</span>
+              <strong id="summary-total" style="color: var(--color-accent);">Rs.0.00</strong>
+            </div>
+
+            <!-- Coupon Code Section -->
+            <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-light);">
+              <label for="cart-coupon-input" style="font-size: 0.8125rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Have a Promo Coupon?</label>
+              <form id="cart-coupon-form" class="coupon-form">
+                <input type="text" id="cart-coupon-input" class="form-control" placeholder="e.g. SAVE20" style="text-transform: uppercase;" />
+                <button type="submit" class="btn btn-secondary btn-sm">Apply</button>
+              </form>
+
+              <!-- Applied Coupon Badge -->
+              <div id="applied-coupon-container" style="display: none;"></div>
+
+              <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.5rem;">
+                Try code <strong style="color: var(--color-accent); cursor: pointer;" onclick="document.getElementById('cart-coupon-input').value='SAVE20'">SAVE20</strong> for 20% off or <strong style="color: var(--color-accent); cursor: pointer;" onclick="document.getElementById('cart-coupon-input').value='WELCOME10'">WELCOME10</strong> for 10% off.
+              </div>
+            </div>
+
+            
+            <a href="checkout.html" class="btn btn-primary btn-lg btn-block mt-6">
+              Proceed to Secure Checkout &rarr;
+            </a>
+
+            <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem;">
+              <span class="pay-badge" style="color: var(--text-muted); background: var(--bg-surface-alt);">256-Bit SSL Secure</span>
+              <span class="pay-badge" style="color: var(--text-muted); background: var(--bg-surface-alt);">Money-Back Guarantee</span>
+            </div>
+          </div>
+        </div>
+
+        
+        <section style="margin-top: 4.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+            <div>
+              <div class="section-subtitle">Saved Items</div>
+              <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary);">From Your Wishlist</h2>
+            </div>
+          </div>
+          <div class="products-grid" id="cart-wishlist-grid">
+           
+          </div>
+        </section>
+      </div>
+    </main>
+
+    
+    <aside class="wishlist-drawer" id="wishlist-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title">Saved Wishlist (<span class="wishlist-count-badge">0</span>)</div>
+        <button class="modal-close-btn" id="wishlist-drawer-close" aria-label="Close wishlist" style="position: static; box-shadow: none;">&times;</button>
+      </div>
+      <div class="drawer-body" id="wishlist-drawer-items"></div>
+    </aside>
+
+    <!-- Quick View Modal -->
+    <div class="modal-backdrop" id="quick-view-modal">
+      <div class="modal-dialog quick-view-dialog">
+        <button class="modal-close-btn" id="quick-view-close" aria-label="Close modal">&times;</button>
+        <div id="quick-view-body"></div>
+      </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="brand-logo" style="color: #fff;">
+              <div class="brand-logo-icon">S</div>
+              <span>SHOPPING<span class="brand-accent"> ADDA.</span></span>
+            </a>
+            <p class="footer-brand-desc">
+              Your premier multi-category destination for acoustic technology, timeless timepieces, and artisan craftsmanship.
+            </p>
+          </div>
+          <div>
+            <h4 class="footer-heading">Shop Departments</h4>
+            <ul class="footer-nav-list">
+              <li><a href="shop.html?category=Electronics">Electronics & Audio</a></li>
+              <li><a href="shop.html?category=Fashion">Fashion & Apparel</a></li>
+              <li><a href="shop.html?category=Accessories">Luxury Accessories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-heading">Customer Care</h4>
+            <ul class="footer-nav-list">
+              <li><a href="cart.html">Shopping Cart</a></li>
+              <li><a href="checkout.html">Checkout Flow</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-heading">Assistance</h4>
+            <ul class="footer-nav-list" style="color: #94a3b8;">
+              <li>24/7 Concierge Support</li>
+              <li>support@shopping.adda.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <div>&copy; 2026 Shopping Adda. International Inc. All rights reserved.</div>
+          <div class="payment-badge-icons">
+            <span class="pay-badge">VISA</span>
+            <span class="pay-badge">MASTERCARD</span>
+            <span class="pay-badge">PAYPAL</span>
+            <span class="pay-badge">UPI</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="/js/products.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/toast.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/modal.js"></script>
+    <script src="/js/cart.js"></script>
+  </body>
+</html>
